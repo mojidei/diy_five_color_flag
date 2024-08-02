@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五色旗定制</title>
+    
+</head>
+<body>
+    <h1>定制你的五色旗</h1>
+    <div class="flag" id="the_flag">
+        <div class="color-bar" id="bar1"></div>
+        <div class="color-bar" id="bar2"></div>
+        <div class="color-bar" id="bar3"></div>
+        <div class="color-bar" id="bar4"></div>
+        <div class="color-bar" id="bar5"></div>
+    </div>
+    <div class="color-picker">
+        <label for="color1">颜色1：</label>
+        <input type="color" id="color1" value="#FF0000">
+        <label for="color2">颜色2：</label>
+        <input type="color" id="color2" value="#FFFF00">
+        <label for="color3">颜色3：</label>
+        <input type="color" id="color3" value="#008000">
+        <label for="color4">颜色4：</label>
+        <input type="color" id="color4" value="#0000FF">
+        <label for="color5">颜色5：</label>
+        <input type="color" id="color5" value="#800080">
+    </div>
+    <button onclick="updateFlag()">更新旗帜颜色</button>
+    <button onclick="updateFlagdDirection()">更新旗帜排列方向</button>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .flag {
+            display: flex;
+            width: 300px;
+            height: 180px;
+            margin: 20px auto;
+            border: 1px solid #000;
+        }
+        .color-bar {
+            flex: 1;
+            height: 100%;
+        }
+        .color-picker {
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        function updateFlag() {
+            document.getElementById('bar1').style.backgroundColor = document.getElementById('color1').value;
+            document.getElementById('bar2').style.backgroundColor = document.getElementById('color2').value;
+            document.getElementById('bar3').style.backgroundColor = document.getElementById('color3').value;
+            document.getElementById('bar4').style.backgroundColor = document.getElementById('color4').value;
+            document.getElementById('bar5').style.backgroundColor = document.getElementById('color5').value;
+        }
+
+        // 初始设置颜色
+        updateFlag();
+        var flag = 1;
+        function updateFlagdDirection(){
+            flag=flag*-1
+            if (flag==1){
+                console.log("1");
+                forInFlagFiveColor("flex");
+            }
+            if (flag==-1){
+                console.log("-1");
+                forInFlagFiveColor("grid");
+
+            }
+        }
+
+        function forInFlagFiveColor(target){
+            console.log(target);
+            document.getElementById("the_flag").style.display=target;
+        }
+    </script>
+</body>
+</html>
